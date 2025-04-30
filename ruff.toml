@@ -1,0 +1,61 @@
+# ruff.toml
+# Exclude patterns
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+    ".venv",
+    ".mypy_cache",
+    "swagger",
+    "testing",
+]
+# Line length configuration
+line-length = 100
+indent-width = 4
+
+# Target Python version
+target-version = "py39"
+
+# Enable all recommended rules
+[lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "Q",
+    "UP",
+    "N",
+    "B",
+    "C4",
+    "ISC",
+    "RET",
+    "SIM",
+    "ARG",
+    "ANN",
+    "TRY",
+]
+# extend-select = ["ANN201", "ANN401","ANN001"]
+ignore = ["TRY003", "E501"]
+fixable = ["ALL"]
+unfixable = []
+
+# Per-file rule ignoring
+[lint.per-file-ignores]
+"main.py" = ["F401"] # Ignore unused imports in __init__.py files
+
+[lint.flake8-annotations]
+ignore-fully-untyped = false
+# ignore-missing-annotation = false
+allow-star-arg-any = true
+mypy-init-return = true
+suppress-none-returning = true
+
+# Format configuration (equivalent to Black)
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
