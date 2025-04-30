@@ -82,7 +82,7 @@ async def receive_webhook(request: Request):
                                 session_id = create_session_id()
                                 if session_id:
                                     await mongodb_manager.create("insta_users", **{"user_id" : commenter_id, "session_id" : session_id})
-                            reply = await run_in_executor(send_message, session_id, commenter_id)
+                            reply = await run_in_executor(send_message, session_id, comment_text)
                             await run_in_executor(
                                     send_customer_message,
                                     settings.INSTAGRAM_USER_ID,
