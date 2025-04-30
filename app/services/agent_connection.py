@@ -115,6 +115,7 @@ def send_message(session_id: str, message_text: str) -> Optional[str]:
         print(f"Failed to send message: {response.status_code}")
         return None
     result = response.json()
+    print(result)
     messages = result.get("messages", [])
     if not messages:
         print("No messages in response")
